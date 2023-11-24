@@ -25,3 +25,16 @@ INSERT INTO users VALUES ( --можна записувати в стовпчик
 ),
 (
     'John', 'Doe', NULL, 'male', true, '1976-01-25', 26, 2.17);
+
+
+    CREATE TABLE books(
+        --id serial PRIMARY KEY,
+        serial_number varchar(200),
+        author varchar(65) NOT NULL CONSTRAINT first_name_not_empty CHECK(first_name !=''),
+        book_title varchar(65) NOT NULL CONSTRAINT first_name_not_empty CHECK(book_title !='') UNIQUE,
+        publication_date,
+        publisher varchar (65),
+        book_descripsion text,
+        number_of_copies number
+    );
+    
