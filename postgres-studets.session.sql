@@ -13,6 +13,10 @@ CREATE TABLE users(
     height numeric(5, 2)
 );
 
+ALTER TABLE users ADD COLUMN email text;
+ALTER TABLE users ADD COLUMN id serial PRIMARY KEY;
+
+
 INSERT INTO users VALUES ( --можна записувати в стовпчик, а також в строчку
     'Donald',
     'Tramp',
@@ -25,3 +29,18 @@ INSERT INTO users VALUES ( --можна записувати в стовпчик
 ),
 (
     'John', 'Doe', NULL, 'male', true, '1976-01-25', 26, 2.17);
+
+DROP TABLE orders;
+
+CREATE TABLE orders(
+    id serial PRIMARY KEY,
+    created_at timestamp NOT NULL DEFAULT current_timestamp,
+    customer_id int REFERENCES users(id)
+);
+
+CREATE TABLE orders_to_products(
+    order_id int REFERENCES orders(id),
+    products_id int REFERENCES products(id),
+    quantity int,
+    PRIMARY KEY(order_id, products_id)
+);
