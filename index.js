@@ -5,43 +5,7 @@ const { configs } = require('./configs/index');
 const { getUsers } = require('./api/fetch');
 
 const client = new Client(configs);
-const usersArray = [
-    {
-        firstName: 'Test1',
-        lastName: 'Grishina',
-        email: 'test1@gmail.com',
-        isSubscribe: false,
-        gender: 'female'
-    },
-    {
-        firstName: 'Test2',
-        lastName: 'Grishina',
-        email: 'test2@gmail.com',
-        isSubscribe: false,
-        gender: 'female'
-    },
-    {
-        firstName: 'Test3',
-        lastName: 'Grishina',
-        email: 'test3@gmail.com',
-        isSubscribe: false,
-        gender: 'female'
-    },
-    {
-        firstName: 'Test4',
-        lastName: 'Grishina',
-        email: 'test4@gmail.com',
-        isSubscribe: false,
-        gender: 'female'
-    },
-    {
-        firstName: 'Test5',
-        lastName: 'Grishina',
-        email: 'test5@gmail.com',
-        isSubscribe: false,
-        gender: 'female'
-    }
-]
+  
 async function start() {
     await client.connect();
 
@@ -55,8 +19,8 @@ async function start() {
     console.log(response);
 }
 
-start();
+//start();
 
 //loadUsers();
 
-console.log(getUsers());
+getUsers();
