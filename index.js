@@ -1,12 +1,8 @@
-const {Client} = require ('pg');
+const { Client } = require ('pg');
+const { configs } = require('./configs/index');
+//const { loadUsers } = require('./api');
+const { getUsers } = require('./api/fetch');
 
-const configs = {
-    host: 'localhost',
-    port: 5432,
-    user: 'postgres',
-    password: 'postgres',
-    database: 'studets'
-}
 const client = new Client(configs);
 
 async function start() {
@@ -23,3 +19,7 @@ async function start() {
 }
 
 start();
+
+//loadUsers();
+
+console.log(getUsers());
